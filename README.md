@@ -85,4 +85,4 @@
 ### Open NeoVim
 
 ``:PlugInstall
-`
+``
