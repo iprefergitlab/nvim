@@ -28,12 +28,12 @@
 
 ### ripgrep
 
-``https://github.com/BurntSushi/ripgrep/releases
+``sudo apt install ripgrep -y
 ``
 
 ### Fd
 
-``sudo apt install fd-find
+``sudo apt install fd-find -y
 ``
 ### Nerd Font
 
