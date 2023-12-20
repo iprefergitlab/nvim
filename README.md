@@ -23,7 +23,7 @@
 
 ### Pynvim
 
-``pip install pynvim
+``pip3 install pynvim
 ``
 
 ### ripgrep
