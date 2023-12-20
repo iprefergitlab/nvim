@@ -11,7 +11,8 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
-Plug 'davidhalter/jedi-vim'
+Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
@@ -107,8 +108,6 @@ nmap tt :q<CR>
 " Call command shortcut
 nmap tc :!
 
-" Run python script
-nnoremap tp :!python3 %<cr>
 
 
 " autocmd """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,16 +136,12 @@ nmap <C-a> :NERDTreeToggle<CR>
 
 " ALE """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
-\   'cpp': [],
-\   'c': [],
-\   'python': ['flake8', 'pyright', 'bandit'],
+\   'rust': ['rust-analyzer'],
 \}
 
 let g:ale_fixers = {
 \   '*': ['trim_whitespace'],
-\   'cpp': ['clang-format'],
-\   'c': ['clang-format'],
-\   'python': ['black', 'isort'],
+\   'rust': ['rustfmt'],
 \}
 
 let g:ale_fix_on_save = 1
@@ -162,29 +157,9 @@ if (has("nvim"))
     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 endif
 
-
-
-" C/C++ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_c_clangformat_options = '"-style={
-\ BasedOnStyle: google,
-\ IndentWidth: 4,
-\ ColumnLimit: 100,
-\ AllowShortBlocksOnASingleLine: Always,
-\ AllowShortFunctionsOnASingleLine: Inline,
-\ FixNamespaceComments: true,
-\ ReflowComments: false,
-\ }"'
-
-
-" Python """"""""""""""""""""""""""""""""""""""""""""""
-let g:ale_python_flake8_options = '--max-line-length=100 --extend-ignore=E203'
-let g:ale_python_black_options = '--line-length 100'
-let g:ale_python_isort_options = '--profile black -l 100'
-
-
 " COC (Conquer of Completion) """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-explorer', 'coc-clangd' ]
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-explorer', 'coc-rust-analyzer' ]
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
