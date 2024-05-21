@@ -70,6 +70,12 @@
 
 ``https://www.nerdfonts.com/
 ``
+
+## xclip
+
+``sudo apt-get install -y xclip
+``
+
 ### Clone this repo inside .config folder
 
 ### Open NeoVim
