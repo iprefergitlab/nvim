@@ -1,6 +1,37 @@
-# This is a Rust Neovim config.
+# This is a C / C++ / Rust Neovim config.
 
 ## System Requirements
+
+### Clang
+
+``sudo apt install clang
+``
+> See the version of clang
+``clang --version
+``
+
+### Clang-format
+
+``sudo apt install clang-format-x
+``
+> Replace "x" by the version of clang
+
+> Create a link to clang-format
+``sudo ln -s /usr/bin/clang-format-x /usr/bin/clang-format
+``
+
+### Clangd
+``sudo apt install clangd-x
+``
+> Replace "x" by the version of clang
+
+> Create a link to clang-format
+``sudo ln -s /usr/bin/clangd-x /usr/bin/clangd
+``
+
+### Rust (Rustup)
+``https://rustup.rs/
+``
 
 ### NodeJs
 
