@@ -74,9 +74,5 @@
 
 ### Open NeoVim
 
-``:CocInstall coc-rust-analyzer
-``
-### After
-
 ``:PlugInstall
 ``
