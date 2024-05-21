@@ -12,7 +12,6 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rust-lang/rust.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
@@ -136,11 +135,15 @@ nmap <C-a> :NERDTreeToggle<CR>
 
 " ALE """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {
+\   'c': [],
+\   'cpp': [],
 \   'rust': ['rust-analyzer'],
 \}
 
 let g:ale_fixers = {
 \   '*': ['trim_whitespace'],
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
 \   'rust': ['rustfmt'],
 \}
 
@@ -157,9 +160,20 @@ if (has("nvim"))
     nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 endif
 
+" C/C++ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_c_clangformat_options = '"-style={
+\ BasedOnStyle: google,
+\ IndentWidth: 4,
+\ ColumnLimit: 100,
+\ AllowShortBlocksOnASingleLine: Always,
+\ AllowShortFunctionsOnASingleLine: Inline,
+\ FixNamespaceComments: true,
+\ ReflowComments: false,
+\ }"'
+
 " COC (Conquer of Completion) """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-explorer', 'coc-rust-analyzer' ]
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-explorer',  'coc-clangd', 'coc-rust-analyzer' ]
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
