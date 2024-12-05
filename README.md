@@ -43,7 +43,7 @@
 ``
 ### Neovim
 
-``https://github.com/neovim/neovim/releases/tag/nightly
+``sudo apt install neovim -y
 ``
 
 ### Pynvim
