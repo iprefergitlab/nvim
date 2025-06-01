@@ -1,4 +1,4 @@
-# Neovim Configuration for C, C++, Rust and Solidity:
+# Neovim Configuration for C/C++, Rust and Solidity:
 
 ## System Requirements
 
