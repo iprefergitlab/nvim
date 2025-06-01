@@ -173,7 +173,7 @@ let g:ale_c_clangformat_options = '"-style={
 
 " COC (Conquer of Completion) """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-explorer',  'coc-clangd', 'coc-rust-analyzer' ]
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-explorer',  'coc-clangd', 'coc-rust-analyzer', '@nomicfoundation/coc-solidity' ]
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim

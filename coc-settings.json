@@ -13,4 +13,6 @@
     },
     "explorer.git.enable": true,
     "snippets.ultisnips.pythonPrompt": false
+    "@nomicfoundation/coc-solidity.formatter": "prettier",
+    "@nomicfoundation/coc-solidity.telemetry": false
 }
