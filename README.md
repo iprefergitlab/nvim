@@ -1,78 +1,106 @@
-# This is a C / C++ / Rust Neovim config.
+# Neovim Configuration for C, C++, Rust and Solidity:
 
 ## System Requirements
 
 ### Clang
 
-``sudo apt install clang
-``
-> See the version of clang
-``clang --version
-``
+```bash
+sudo apt install clang
+```
+_Check your Clang version:_
+```bash
+clang --version
+```
 
 ### Clang-format
 
-``sudo apt install clang-format-x
-``
-> Replace "x" by the version of clang
-
-> Create a link to clang-format
-``sudo ln -s /usr/bin/clang-format-x /usr/bin/clang-format
-``
+_Replace `x` with your Clang version:_
+```bash
+sudo apt install clang-format-x
+sudo ln -s /usr/bin/clang-format-x /usr/bin/clang-format
+```
 
 ### Clangd
-``sudo apt install clangd-x
-``
-> Replace "x" by the version of clang
 
-> Create a link to clang-format
-``sudo ln -s /usr/bin/clangd-x /usr/bin/clangd
-``
+_Replace `x` with your Clang version:_
+```bash
+sudo apt install clangd-x
+sudo ln -s /usr/bin/clangd-x /usr/bin/clangd
+```
 
 ### Rust (Rustup)
-``https://rustup.rs/
-``
 
-### NodeJs
+Install Rust using Rustup:  
+[https://rustup.rs/](https://rustup.rs/)
 
-``https://nodejs.org/en/download
-``
+### Node.js
+
+Download and install Node.js:  
+[https://nodejs.org/en/download](https://nodejs.org/en/download)
+
 ### Python
 
-``https://www.python.org/downloads/
-``
+Download and install Python:  
+[https://www.python.org/downloads/](https://www.python.org/downloads/)
+
 ### Neovim
 
-``sudo apt install neovim -y
-``
+```bash
+sudo apt install neovim -y
+```
 
 ### Pynvim
 
-``pip3 install pynvim
-``
+```bash
+pip3 install pynvim
+```
 
 ### ripgrep
 
-``sudo apt install ripgrep -y
-``
+```bash
+sudo apt install ripgrep -y
+```
 
-### Fd
+### fd
 
-``sudo apt install fd-find -y
-``
+```bash
+sudo apt install fd-find -y
+```
+
 ### Nerd Font
 
-``https://www.nerdfonts.com/
-``
+Download and install a Nerd Font for better icon support:  
+[https://www.nerdfonts.com/](https://www.nerdfonts.com/)
 
-## xclip
+### xclip
 
-``sudo apt-get install -y xclip
-``
+```bash
+sudo apt-get install -y xclip
+```
 
-### Clone this repo inside .config folder
+## Setup Instructions
 
-### Open NeoVim
+1. **Clone this repository** inside your `~/.config` folder.
 
-``:PlugInstall
-``
+2. **Open Neovim**:
+   ```bash
+   nvim
+   ```
+
+3. **Run**:
+
+```vim
+:CocInstall @nomicfoundation/coc-solidity
+:CocInstall coc-prettier
+```
+
+To set the Solidity compiler version (if necessary), run this in your terminal:
+
+```bash
+solc-select use <version - ex: 0.8.24> --always-install
+```
+
+4. **Install the plugins** by running:
+   ```vim
+   :PlugInstall
+   ```
