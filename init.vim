@@ -19,8 +19,6 @@ endif
 
 call plug#end()
 
-
-
 " Global Sets """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on            " Enable syntax highlight
 set nu               " Enable line numbers
@@ -121,18 +119,6 @@ let g:airline_powerline_fonts = 1
 " NerdTree """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <C-a> :NERDTreeToggle<CR>
 
-" ALE """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_linters = {
-\   'rust': ['rust-analyzer'],
-\}
-
-let g:ale_fixers = {
-\   '*': ['trim_whitespace'],
-\   'rust': ['rustfmt'],
-\}
-
-let g:ale_fix_on_save = 1
-
 " NeoVim """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if (has("nvim"))
     " Telescope """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -143,8 +129,13 @@ if (has("nvim"))
 endif
 
 " COC (Conquer of Completion) """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:coc_global_extensions = [ 'coc-snippets', 'coc-explorer', 'coc-rust-analyzer' ]
+
+" Format on save """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup LspFormat
+  autocmd!
+  autocmd BufWritePre *.rs :call CocAction('format')
+augroup END
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
